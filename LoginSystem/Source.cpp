@@ -160,7 +160,7 @@ void registerScreen(ofstream &newData, ifstream &file, vector<login>& x, bool lo
 
 	x.push_back(temp);
 
-	cout << "Account registered" << endl;
+	cout << "Account registered." << endl;
 
 
 
