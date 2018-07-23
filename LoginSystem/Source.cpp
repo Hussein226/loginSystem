@@ -206,7 +206,7 @@ void loginScreen(vector<login> x, bool &loggedIn, int &userNumber)
         }
         if (loggedIn == true)
         {
-            cout << "Invalid username or password" << endl;
+            cout << "Invalid username or password, try again..." << endl;
             loginScreen(x, loggedIn, userNumber);
         }
 
