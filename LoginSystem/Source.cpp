@@ -6,6 +6,7 @@
 #include <sstream>
 using namespace std;
 
+const string DBUSERS = "registeredUsers.txt";
 
 ifstream loginFile;
 ofstream updatedData;
@@ -48,7 +49,7 @@ void readFromFile(ofstream &newData, ifstream &file, vector<login> &x)
     string tempBalance;
     double balance;
 
-    file.open("registeredUsers.txt");
+    file.open(DBUSERS);
     newData.open("registeredUsers.txt", fstream::app);
     while (!file.eof())
     {
@@ -121,14 +122,12 @@ void registerScreen(ofstream &newData, ifstream &file, vector<login>& x, bool lo
     int choice;
     string newUser, newPass;
     login temp;
-    bool userTaken = false;
+    bool userTaken = true;
 
 
 
     do
     {
-        userTaken = false;
-
         cout << "Enter a new username: ";
         cin >> newUser;
 
@@ -141,10 +140,9 @@ void registerScreen(ofstream &newData, ifstream &file, vector<login>& x, bool lo
             if (newUser == x[i].username)
             {
                 cout << "Username has already been taken" << endl;
-                userTaken = true;
+            } else {
+                userTaken = false;
             }
-
-
         }
     } while (userTaken == true);
 
